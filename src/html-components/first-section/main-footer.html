@@ -1,7 +1,8 @@
 <div class="container">
   <div class="main-footer__wrapper">
-    <form action="">
-      <input type="text" placeholder="Enter your Email and get notified">
+    <form id='form' action="form.php" method="POST">
+      <input id='email' name="email" type="text" placeholder="Enter your Email and get notified">
+      <span class="error"></span>
       <button type="submit"><img src="../../img/arrow.svg" alt="arrow"></button>
     </form>
     <a href="#">Other Events</a>

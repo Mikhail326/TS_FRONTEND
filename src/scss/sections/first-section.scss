@@ -5,6 +5,7 @@
 .header {
   padding-top: 50px;
   text-align: center;
+  display: block;
 
   &-left-item,
   &-right-item {
@@ -256,4 +257,21 @@
       }
     }
   }
+}
+
+.error {
+  display: none;
+  position: absolute;
+  bottom: -25px;
+  left: 25px;
+  color: var(--red);
+  @media (max-width: 768px) {
+    font-size: 12px;
+    bottom: -19px;
+    left: 5px;
+  }
+}
+
+.active-error {
+  display: inline;
 }
