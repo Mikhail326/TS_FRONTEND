@@ -239,23 +239,55 @@
         }
       }
     }
+  }
+}
 
-    & a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      position: absolute;
-      top: calc(50% - 12.5px);
-      right: 0;
+.link-anchor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: calc(50% - 12.5px);
+  right: 0;
+  color: var(--main);
+  cursor: pointer;
 
-      &::after {
-        transform: rotate(90deg);
-      }
+  &::before {
+    display: block;
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: var(--main); 
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+  }
 
-      @media (max-width: 768px) {
-        position: static;
-      }
-    }
+  &::after {
+    display: inline-block;
+    content: "";
+    background-image: url("../img/arrow.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    transform: rotate(90deg);
+    transition: 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+  }
+}
+
+.active-anchor {
+  &::before {
+    width: 100%;
+  }
+  &::after {
+    transform: rotate(-90deg);
   }
 }
 
