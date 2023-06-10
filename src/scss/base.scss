@@ -1,0 +1,337 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --main: rgb(255, 255, 255);
+  --text: rgba(0, 0, 0, 0.8);
+  --title: rgba(22, 44, 78, 0.39);
+  --bg: rgb(29, 65, 105);
+  --time: rgb(22, 44, 78);
+  --light: rgba(255, 255, 255, 0.8);
+}
+
+input,
+button {
+  all: unset;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 75px;
+  text-transform: uppercase;
+  color: var(--title);
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+    line-height: 37px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--main);
+  &::after {
+    display: inline-block;
+    content: "";
+    background-image: url("../img/arrow.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  @media (max-width: 400px) {
+    padding: 0 10px;
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background-color: var(--bg);
+  border-radius: 40px;
+  width: 240px;
+  margin: 12px auto 0 auto;
+}
+
+.header {
+  padding-top: 50px;
+  text-align: center;
+
+  &-left-item,
+  &-right-item {
+    position: absolute;
+    top: 0;
+
+    & img {
+      max-width: 300px;
+
+      @media (max-width: 1024px) {
+        max-width: 200px;
+      }
+      @media (max-width: 768px) {
+        width: 150px;
+      }
+      @media (max-width: 400px) {
+        width: 110px;
+      }
+    }
+  }
+
+  &-left-item {
+    left: 0;
+  }
+  &-right-item {
+    right: 0;
+  }
+
+  &-logo {
+    @media (max-width: 400px) {
+      width: 120px;
+    }
+  }
+}
+
+.main-content {
+  text-align: center;
+  margin-top: 40px;
+
+  @media (max-width: 400px) {
+    margin-top: 20px;
+  }
+
+  & p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: var(--text);
+    width: 420px;
+    margin: 8px auto 0;
+
+    @media (max-width: 768px) {
+      margin: 20px auto 0;
+      font-size: 16px;
+      line-height: 24px;
+      width: 300px;
+    }
+    @media (max-width: 400px) {
+      margin: 16px auto 0;
+    }
+  }
+
+  &__timer {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 70px;
+
+    @media (max-width: 768px) {
+      margin-top: 40px;
+      gap: 34px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 400px) {
+      gap: 18px;
+    }
+  }
+
+  & .timer-item {
+    position: relative;
+    &::after,
+    &::before {
+      display: block;
+      content: "";
+      width: 13px;
+      height: 13px;
+      background-color: var(--time);
+      border-radius: 50%;
+      position: absolute;
+      right: -20px;
+
+      @media (max-width: 768px) {
+        width: 7px;
+        height: 7px;
+      }
+      @media (max-width: 400px) {
+        right: -13px;
+      }
+    }
+
+    &::after {
+      top: 18px;
+      @media (max-width: 768px) {
+        top: 8px;
+      }
+    }
+    &::before {
+      top: 47px;
+      @media (max-width: 768px) {
+        top: 22px;
+      }
+    }
+
+    &:last-child {
+      &::after,
+      &::before {
+        display: none;
+      }
+    }
+    &__number {
+      display: block;
+      font-weight: 600;
+      font-size: 72px;
+      line-height: 72px;
+      color: var(--time);
+      margin-bottom: 5px;
+
+      @media (max-width: 768px) {
+        font-size: 36px;
+        line-height: 36px;
+      }
+    }
+
+    &__type,
+    &__type-res {
+      align-items: center;
+      justify-content: center;
+      background-image: url("../img/timer-bg.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 132px;
+      height: 54px;
+      color: var(--main);
+
+      @media (max-width: 768px) {
+        background-image: url("../img/timer-bg_res.png");
+        width: 64px;
+        height: 40px;
+        font-size: 12px;
+        line-height: 12px;
+      }
+    }
+
+    &__type {
+      display: flex;
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+    &__type-res {
+      display: none;
+      @media (max-width: 768px) {
+        display: flex;
+      }
+    }
+  }
+}
+
+.main-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--bg);
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 192px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 15px;
+      height: 160px;
+    }
+
+    @media (max-width: 400px) {
+      height: 130px;
+    }
+
+    & form {
+      position: relative;
+
+      & input {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
+        border-radius: 40px;
+        padding: 16px 151px 16px 27px;
+        width: 260px;
+
+        @media (max-width: 768px) {
+          font-size: 14px;
+          padding: 9px 80px 9px 27px;
+          line-height: 21px;
+        }
+        @media (max-width: 400px) {
+          padding: 9px 40px 9px 15px;
+        }
+      }
+
+      & button {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        background-color: rgb(223, 34, 36);
+        padding: 13px;
+        border-radius: 50%;
+
+        @media (max-width: 768px) {
+          top: 3.5px;
+          right: 4px;
+          padding: 7px;
+        }
+      }
+    }
+
+    & a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: absolute;
+      top: calc(50% - 12.5px);
+      right: 0;
+
+      &::after {
+        transform: rotate(90deg);
+      }
+
+      @media (max-width: 768px) {
+        position: static;
+      }
+    }
+  }
+}
