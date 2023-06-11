@@ -1,5 +1,12 @@
 .second-section {
   height: 100vh;
-  background-color: red;
   width: 100%;
+  padding: 100px 0;
+}
+
+.party-list {
+  &__item {
+    width: 995px;
+    height: 680px;
+  }
 }
