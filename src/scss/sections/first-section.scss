@@ -188,12 +188,11 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 192px;
+    height: 160px;
 
     @media (max-width: 768px) {
       flex-direction: column;
       gap: 15px;
-      height: 160px;
     }
 
     @media (max-width: 400px) {

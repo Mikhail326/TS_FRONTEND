@@ -105,3 +105,36 @@ const scrollTo = () => {
 }
 
 btnScroll.addEventListener('click', scrollTo)
+
+
+// ------------- Accordion --------------
+const accBtns = document.querySelectorAll('.item-btn')
+const accBodys =  document.querySelectorAll('.party-list__item')
+const accInfos = document.querySelectorAll('.item-body')
+
+
+const showAccordionBody = (e) => {
+  console.log(e.target)
+console.log(e.currentTarget)
+  accBodys.forEach(b => {
+    b.classList.remove('active-acc')
+  })
+  accBtns.forEach(b => {
+    b.classList.remove('active-acc-btn')
+  })
+  accInfos.forEach(i => {
+    i.classList.remove('active-acc-info')
+  })
+  const body = e.currentTarget.parentNode
+  const btn = e.currentTarget
+  const info = e.currentTarget.previousElementSibling
+
+  body.classList.add('active-acc')
+  btn.classList.add('active-acc-btn')
+  info.classList.add('active-acc-info')
+}
+
+accBtns.forEach(b=> {
+  b.addEventListener('click', showAccordionBody)
+})
+
