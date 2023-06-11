@@ -33,7 +33,7 @@ const regEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const submitForm = async (e) => {
   e.preventDefault()
   const data = new FormData(form)
-  if(!input.value) {
+  if (!input.value) {
     error.classList.add('active-error')
     error.innerHTML = 'Required field!'
     return
@@ -109,13 +109,13 @@ btnScroll.addEventListener('click', scrollTo)
 
 // ------------- Accordion --------------
 const accBtns = document.querySelectorAll('.item-btn')
-const accBodys =  document.querySelectorAll('.party-list__item')
+const accBodys = document.querySelectorAll('.party-list__item')
 const accInfos = document.querySelectorAll('.item-body')
 
+const mobileAccBtns = document.querySelectorAll('.item-mobile-btn')
+const mobileAccBodys = document.querySelectorAll('.pl-mobile__item')
 
 const showAccordionBody = (e) => {
-  console.log(e.target)
-console.log(e.currentTarget)
   accBodys.forEach(b => {
     b.classList.remove('active-acc')
   })
@@ -134,7 +134,23 @@ console.log(e.currentTarget)
   info.classList.add('active-acc-info')
 }
 
-accBtns.forEach(b=> {
+const showMobileAccordionBody = (e) => {
+  mobileAccBtns.forEach(b => {
+    b.classList.remove('active-mobile-btn')
+  })
+  mobileAccBodys.forEach(b => {
+    b.style.maxHeight = 0
+  })
+  const body = e.currentTarget.previousElementSibling
+  body.style.maxHeight =  body.scrollHeight + 'px'
+  const btn = e.currentTarget
+  btn.classList.add('active-mobile-btn')
+}
+
+accBtns.forEach(b => {
   b.addEventListener('click', showAccordionBody)
 })
 
+mobileAccBtns.forEach(b => {
+  b.addEventListener('click', showMobileAccordionBody)
+})
